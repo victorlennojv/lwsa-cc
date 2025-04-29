@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-
+import LoginForm from '@/components/auth/LoginForm.vue';
 </script>
 
 <template>
-  <div>Teste</div>
+  <LoginForm />
 </template>
 
 <style lang="scss" scoped>
