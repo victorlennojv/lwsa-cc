@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
 import GameBanner from '@/components/GameBanner.vue'
 import GameOptions from '@/components/game/GameOptions.vue'
-import GameAboutModal from '@/components/game/GameAboutModal.vue'
+const GameAboutModal = defineAsyncComponent(() => import('@/components/game/GameAboutModal.vue'))
 import { useGameStore } from '@/stores/game'
 
 const gameStore = useGameStore()
