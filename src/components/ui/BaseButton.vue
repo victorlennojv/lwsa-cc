@@ -33,7 +33,7 @@ const buttonClasses = computed(() => [
   baseClasses,
   variantClasses.value[variant],
   fullWidth ? 'w-full' : '',
-  disabled || isLoading ? 'cursor-not-allowed opacity-50' : '',
+  disabled || isLoading ? 'cursor-not-allowed opacity-50' : 'cursor-pointer ',
 ].join(' '))
 
 const handleClick = (event: MouseEvent) => {
