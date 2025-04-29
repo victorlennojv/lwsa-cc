@@ -25,8 +25,8 @@ const emit = defineEmits<{
       </div>
       <div class="space-y-4">
         <p class="text-gray-600 leading-relaxed text-justify">
-          O Jogo da Memória é um jogo das antigas (clássico kk) onde você precisa encontrar pares de cartas iguais. <br />
-          Quanto maior a dificuldade, mais cartas você terá que memorizar! <br />
+          O Jogo da Memória é um jogo clássico onde você precisa encontrar pares iguais. <br />
+          Quanto maior a dificuldade, mais itens você terá que memorizar! <br />
           Nessa aplicação, você será recompensado pela agilidade e número de tentativas. <br />
           Quanto mais rápido você encontrar os pares e menos tentativas você precisar, mais pontos você receberá! <br />
           Boa sorte!
