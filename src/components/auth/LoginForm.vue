@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { GoogleLogin } from 'vue3-google-login'
-import LoginBanner from './LoginBanner.vue'
+import GameBanner from '@/components/GameBanner.vue'
 
 interface Props {
   isLoading: boolean
@@ -22,7 +22,7 @@ const handleGoogleLogin = (response: { credential: string }) => {
 <template>
   <div class="min-h-screen flex items-center justify-center py-12">
     <div class="w-full max-w-md">
-      <LoginBanner />
+      <GameBanner />
       <div class="mt-8 flex flex-col items-center">
         <GoogleLogin :callback="handleGoogleLogin" />
         <p v-if="props.error" class="mt-2 text-sm text-red-500 text-center">
