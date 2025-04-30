@@ -15,7 +15,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="flex justify-center gap-5 mb-5 items-center">
+  <div class="flex justify-center gap-5 mb-8 items-center">
     <div class="turns">
       <span class="mr-2">Tentativas: </span>
       <span :class="['px-2.5 py-1.5 rounded', isFinished ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-800']">{{ turns }}</span>
