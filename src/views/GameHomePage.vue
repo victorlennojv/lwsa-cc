@@ -11,7 +11,6 @@ const gameStore = useGameStore()
 const showAboutModal = ref(false)
 
 const handleStartGame = () => {
-  gameStore.resetGame()
   router.push('/game')
 }
 

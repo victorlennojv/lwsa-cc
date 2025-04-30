@@ -11,8 +11,6 @@ const DIFFICULTY_PAIRS = {
 
 export const useGameStore = defineStore('game', () => {
   const difficulty = ref<GameDifficulty>('medium')
-  const score = ref(0)
-  const attempts = ref(0)
 
   const pairsCount = computed(() => DIFFICULTY_PAIRS[difficulty.value])
 
@@ -20,17 +18,9 @@ export const useGameStore = defineStore('game', () => {
     difficulty.value = newDifficulty
   }
 
-  const resetGame = () => {
-    score.value = 0
-    attempts.value = 0
-  }
-
   return {
     difficulty,
-    score,
-    attempts,
     pairsCount,
-    setDifficulty,
-    resetGame
+    setDifficulty
   }
 }) 
