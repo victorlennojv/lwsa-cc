@@ -9,9 +9,12 @@ import GameFinishModal from '@/components/game/GameFinishModal.vue'
 import { useGameStore } from '@/stores/game'
 import { getDogImages } from '@/services/images'
 import { useMemoryGame } from '@/composables/useMemoryGame'
+import { useAuthStore } from '@/stores/auth'
+import { submitGameResult } from '@/services/gameResults'
 
 const router = useRouter()
 const gameStore = useGameStore()
+const authStore = useAuthStore()
 const { 
   sec, 
   min, 
@@ -23,6 +26,9 @@ const {
 } = useMemoryGame()
 
 const isLoading = ref(false)
+const isSubmitting = ref(false)
+const submitError = ref<string | null>(null)
+const submitSuccess = ref<string | null>(null)
 
 const finalScore = computed(() => {
   const timeInSeconds = Number(min.value) * 60 + Number(sec.value)
@@ -39,6 +45,36 @@ const initializeGame = async () => {
     router.push('/home')
   } finally {
     isLoading.value = false
+  }
+}
+
+const submitScore = async () => {
+  try {
+    isSubmitting.value = true
+    submitError.value = null
+    submitSuccess.value = null
+
+    await submitGameResult({
+      userId: authStore.user?.id || '',
+      score: finalScore.value,
+      time: {
+        minutes: Number(min.value),
+        seconds: Number(sec.value)
+      },
+      turns: turns.value,
+      difficulty: gameStore.difficulty
+    })
+
+    submitSuccess.value = 'Score enviado com sucesso!'
+    
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    router.push('/home')    
+  } catch (error) {
+    console.error('Erro ao enviar score:', error)
+    submitError.value = 'Erro ao enviar score. Tente novamente. (erro por conta da API mockada)'
+  } finally {
+    isSubmitting.value = false
   }
 }
 
@@ -83,6 +119,10 @@ onMounted(() => {
       :seconds="sec"
       :turns="turns"
       :score="finalScore"
+      :is-submitting="isSubmitting"
+      :error="submitError"
+      :success="submitSuccess"
+      @submit="submitScore"
       @close="initializeGame"
     />
   </div>
