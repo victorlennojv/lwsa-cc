@@ -29,7 +29,7 @@ const finalScore = computed(() => {
   return ((gameStore.pairsCount * 20) - timeInSeconds) * gameStore.pairsCount
 })
 
-const fetchImages = async () => {
+const initializeGame = async () => {
   try {
     isLoading.value = true
     const dogImages = await getDogImages(gameStore.pairsCount)
@@ -43,7 +43,7 @@ const fetchImages = async () => {
 }
 
 onMounted(() => {
-  fetchImages()
+  initializeGame()
 })
 </script>
 
@@ -65,7 +65,7 @@ onMounted(() => {
       :minutes="min"
       :seconds="sec"
       :is-finished="finish"
-      @reset="fetchImages"
+      @reset="initializeGame"
     />
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-[550px] mx-auto mb-8">
@@ -83,7 +83,7 @@ onMounted(() => {
       :seconds="sec"
       :turns="turns"
       :score="finalScore"
-      @close="fetchImages"
+      @close="initializeGame"
     />
   </div>
 </template>
