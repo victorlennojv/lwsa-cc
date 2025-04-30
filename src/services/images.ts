@@ -6,14 +6,13 @@ export const getDogImages = async (count: number): Promise<DogImage[]> => {
   try {
     const response = await fetch(`${BASE_URL}/breeds/image/random/${count}`)
     const data = await response.json()
-    console.log(data)
 
     if (data.status !== 'success') {
       throw new Error('Failed to fetch dog images')
     }
 
     return data.message.map((url: string, index: number) => ({
-      id: index,
+      id: index.toString(),
       url
     }))
   } catch (error) {
