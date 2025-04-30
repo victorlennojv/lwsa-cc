@@ -1,10 +1,17 @@
 import type { GameResult } from '@/types/game'
 import { useAuthStore } from '@/stores/auth'
+import { useRouter } from 'vue-router'
 
 export const submitGameResult = async (result: GameResult): Promise<boolean> => {
+  const router = useRouter()
+
   try {
     const authStore = useAuthStore()
     const token = authStore.token || ''
+
+    if (!token) {
+      router.push('/')
+    }
 
     const response = await fetch('https://api.mockada.com/game-results', {
       method: 'POST',

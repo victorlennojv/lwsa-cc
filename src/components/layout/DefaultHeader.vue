@@ -16,7 +16,7 @@ const handleLogout = () => {
   <header class="mx-auto px-1">
     <div class="flex justify-between items-center mb-4">
       <div>
-        <p class="text-gray-600">Bem-vindo, {{ authStore.user?.name }}!</p>
+        <p class="text-gray-600">Bem-vindo, <strong>{{ authStore.user?.name }}</strong></p>
       </div>
       <BaseButton
         variant="primary"

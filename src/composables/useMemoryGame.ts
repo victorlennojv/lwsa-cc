@@ -24,7 +24,7 @@ export const useMemoryGame = () => {
       isMatched: false,
     }))
 
-    // Tive que adicionar um posfix para diferenciar as cartas pois estava dando erro no render (vueWarns)
+    // I have to add this posfix to differentiate cards id in render (vueWarns)
     const pairs = baseCards.flatMap(card => [
       { ...card, id: `${card.id}-1` },
       { ...card, id: `${card.id}-2` },
@@ -61,7 +61,7 @@ export const useMemoryGame = () => {
   }
 
   const getBaseCardIdWithoutPosfix = (cardId: string) => {
-    // Daí aqui pra poder comprar e dar match quando for igual, retiro e comparo apenas o id base
+    // Here I remove the posfix to compare the cards
     return cardId.split('-')[0]
   }
 
@@ -72,19 +72,20 @@ export const useMemoryGame = () => {
     const id1 = getBaseCardIdWithoutPosfix(card1.id)
     const id2 = getBaseCardIdWithoutPosfix(card2.id)
 
-    if (id1 === id2) {
-      flippedCards.value.forEach(flippedCard => (flippedCard.isMatched = true))
-      flippedCards.value = []
-
-      if (memoryCards.value.every(card => card.isMatched)) {
-        stopTimer()
-        finish.value = true
-      }
-    } else {
+    if (id1 !== id2) {
       setTimeout(() => {
         flippedCards.value.forEach(c => (c.isFlipped = false))
         flippedCards.value = []
       }, 1000)
+      return
+    }
+
+    flippedCards.value.forEach(flippedCard => (flippedCard.isMatched = true))
+    flippedCards.value = []
+
+    if (memoryCards.value.every(card => card.isMatched)) {
+      stopTimer()
+      finish.value = true
     }
   }
 
