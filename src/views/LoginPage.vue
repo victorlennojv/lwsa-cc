@@ -13,7 +13,7 @@ const handleLogin = async (credential: string) => {
 
 watch(() => authStore.user, (user) => {
   if (user) {
-    router.push('/game')
+    router.push('/home')
   }
 })
 </script>

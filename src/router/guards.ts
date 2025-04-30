@@ -8,10 +8,10 @@ export const authGuard = async (
 ) => {
   const authStore = useAuthStore()
 
-  if (to.path === '/game' && !authStore.isAuthenticated) {
+  if (to.path !== '/' && !authStore.isAuthenticated) {
     next('/')
   } else if (to.path === '/' && authStore.isAuthenticated) {
-    next('/game')
+    next('/home')
   } else {
     next()
   }

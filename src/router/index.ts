@@ -11,13 +11,18 @@ const router = createRouter({
       component: LoginPage,
     },
     {
-      path: '/game',
+      path: '/home',
       component: () => import('@/layouts/LoggedLayout.vue'),
       children: [
         {
           path: '',
-          name: 'game',
-          component: () => import('@/views/GamePage.vue'),
+          name: 'home',
+          component: () => import('@/views/GameHomePage.vue'),
+        },
+        {
+          path: '/game',
+          name: 'memory-game',
+          component: () => import('@/views/MemoryGamePage.vue'),
         }
       ]
     }
