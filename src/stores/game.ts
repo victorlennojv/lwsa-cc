@@ -4,9 +4,9 @@ import { ref, computed } from 'vue'
 export type GameDifficulty = 'easy' | 'medium' | 'hard'
 
 const DIFFICULTY_PAIRS = {
-  easy: 4,
-  medium: 6,
-  hard: 8
+  easy: 8,
+  medium: 10,
+  hard: 12
 }
 
 export const useGameStore = defineStore('game', () => {

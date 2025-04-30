@@ -14,8 +14,8 @@ const emit = defineEmits<{
 
 const difficulties = [
   { value: 'easy' as GameDifficulty, label: 'Fácil (4x4)' },
-  { value: 'medium' as GameDifficulty, label: 'Médio (6x6)' },
-  { value: 'hard' as GameDifficulty, label: 'Difícil (8x8)' }
+  { value: 'medium' as GameDifficulty, label: 'Médio (4x5)' },
+  { value: 'hard' as GameDifficulty, label: 'Difícil (4x6)' }
 ]
 </script>
 
