@@ -85,7 +85,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="memory-game bg-gray-100 rounded-lg p-4">
+  <div class="memory-game bg-gray-100 rounded-lg min-h-screen p-4">
     <BaseLoader v-if="isLoading" />
     
     <div class="flex justify-center">
