@@ -1,4 +1,4 @@
 export interface DogImage {
-  id: number
+  id: string
   url: string
 } 

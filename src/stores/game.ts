@@ -1,12 +1,20 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export type GameDifficulty = 'easy' | 'medium' | 'hard'
+
+const DIFFICULTY_PAIRS = {
+  easy: 4,
+  medium: 6,
+  hard: 8
+}
 
 export const useGameStore = defineStore('game', () => {
   const difficulty = ref<GameDifficulty>('medium')
   const score = ref(0)
   const attempts = ref(0)
+
+  const pairsCount = computed(() => DIFFICULTY_PAIRS[difficulty.value])
 
   const setDifficulty = (newDifficulty: GameDifficulty) => {
     difficulty.value = newDifficulty
@@ -21,6 +29,7 @@ export const useGameStore = defineStore('game', () => {
     difficulty,
     score,
     attempts,
+    pairsCount,
     setDifficulty,
     resetGame
   }
