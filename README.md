@@ -14,8 +14,16 @@ npm run dev
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
+- Unit test
+
 ```sh
 npm run test:unit
+```
+
+- Coverage
+
+```sh
+npm run test:coverage
 ```
 
 # Arquitetura do Jogo da Memória
@@ -49,13 +57,16 @@ src/
 
 ### 1. Componentes
 
-- **Presentacionais**: Focados em UI, sem lógica de negócio
+- Para esse projeto, resolvi usar o pattern Container/Presentational
+  Onde:
+- **Presentationals**: Focados em UI, sem lógica de negócio
+  ex:
   - `GameCard.vue`
   - `GameFinishModal.vue`
   - `GameInfo.vue`
   - `LoginForm.vue`
-  - etc
 - **Containers**: Gerenciam estado e lógica
+  ex:
   - `MemoryGamePage.vue`
   - `GameHomePage.vue`
   - `LoginPage.vue`
