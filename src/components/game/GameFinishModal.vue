@@ -14,7 +14,7 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div     class="fixed inset-0 bg-gray-900/30 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-500">
     <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
       <h2 class="text-2xl font-bold text-center mb-6">Parabéns! 🎉</h2>
       
