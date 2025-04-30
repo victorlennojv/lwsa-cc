@@ -32,14 +32,14 @@ const handleClick = () => {
     @click="handleClick"
   >
     <div class="game-card__container">
-      <div data-testid="game-card-front" class="game-card__front bg-indigo-400">
+      <div data-testid="game-card-front" class="game-card__front bg-indigo-400 border-4 border-indigo-200">
       </div>
-      <div data-testid="game-card-back" class="game-card__back">
+      <div data-testid="game-card-back" class="game-card__back border-4 border-indigo-400">
         <img 
           data-testid="game-card-image"
           :src="card.img" 
           alt="Dog" 
-          class="game-card__image object-cover rounded-lg"
+          class="game-card__image"
           :class="{ 'game-card__image--matched': card.isMatched }"
         />
       </div>
