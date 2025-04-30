@@ -25,8 +25,8 @@ const {
 const isLoading = ref(false)
 
 const finalScore = computed(() => {
-  const timeInSeconds = Number(min) * 60 + Number(sec)
-  return ((gameStore.pairsCount * 20) - timeInSeconds) * gameStore.pairsCount
+  const timeInSeconds = Number(min.value) * 60 + Number(sec.value)
+  return ((gameStore.pairsCount * 20) - timeInSeconds - turns.value) * gameStore.pairsCount
 })
 
 const initializeGame = async () => {
