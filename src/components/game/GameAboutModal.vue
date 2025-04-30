@@ -25,10 +25,10 @@ const emit = defineEmits<{
       </div>
       <div class="space-y-4">
         <p class="mb-4text-gray-600 leading-relaxed text-justify">
-          O Jogo da Memória é um jogo clássico onde você precisa encontrar pares iguais. <br />
+          <span> O Jogo da Memória é um jogo clássico onde você precisa encontrar pares iguais. </span>
           Quanto maior a dificuldade, mais itens você terá que memorizar! <br />
-          Nessa aplicação, você será recompensado pela agilidade e número de tentativas. <br />
-          Quanto mais rápido você encontrar os pares e menos tentativas você precisar, mais pontos você receberá! <br />
+          Nessa aplicação, você será recompensado pela agilidade, número de tentativas e dificuldade escolhida. <br />
+          Quanto maior a dificuldade, mais rápido você encontrar os pares e menos tentativas você precisar, mais pontos você receberá! <br />
         </p>
         <span class="font-bold text-2xl">Boa sorte!</span>
 
